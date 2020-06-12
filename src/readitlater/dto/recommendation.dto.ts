@@ -1,25 +1,18 @@
-import {
-    IsString,
-    IsNotEmpty,
-    Min,
-    IsNumberString
-  } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumberString } from 'class-validator';
 import { UserDto } from 'src/users/dto/user.dto';
 import { Exclude } from 'class-transformer';
 
 export class CreateRecommendationDto {
+  @IsNotEmpty()
+  @IsString()
+  url: string;
 
-    @IsNotEmpty()
-    @IsString()
-    url: string;
-  
-    @IsNotEmpty()
-    @IsNumberString()
-    userid: number;
+  @IsNotEmpty()
+  @IsNumberString()
+  userid: number;
 }
 
 export class RecommendationDto {
-
   id: number;
   url: string;
   entryDate: Date;
@@ -35,7 +28,6 @@ export class RecommendationDto {
 }
 
 export class ReferenceDto {
-
   id: number;
   url: string;
   entryDate: Date;
@@ -49,7 +41,6 @@ export class ReferenceDto {
     Object.assign(this, partial);
   }
 }
-
 
 export class ReferralDto {
   email: string;
@@ -68,6 +59,6 @@ export class ReferralDto {
   entryDate: Date;
 
   constructor(partial: Partial<ReferralDto>) {
-      Object.assign(this, partial);
-    }
+    Object.assign(this, partial);
+  }
 }

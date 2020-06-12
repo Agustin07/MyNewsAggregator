@@ -8,12 +8,15 @@ class GuardianService {
 
   async getNews(params: ParamsNewsDto) {
     const queryParams = this.createRequest(params);
-    const apiResponse = await this.consume(queryParams).catch((e) => { 
-        throw new HttpException(
-          { status: e.response.status, error: "THE GUARDIAN API: "+e.response.data.response.message },
-          e.response.status,
-        );
-      });;
+    const apiResponse = await this.consume(queryParams).catch((e) => {
+      throw new HttpException(
+        {
+          status: e.response.status,
+          error: 'THE GUARDIAN API: ' + e.response.data.response.message,
+        },
+        e.response.status,
+      );
+    });
     const articles = this.parseNews(apiResponse.data.response.results);
     return articles;
   }

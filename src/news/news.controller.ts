@@ -3,7 +3,8 @@ import {
   Get,
   Query,
   HttpException,
-  HttpStatus, UseGuards
+  HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
 import NewsService from './news.service';
 import NYTimesService from './nytimes.service';

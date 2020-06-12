@@ -10,7 +10,10 @@ class NewsService {
     const queryParams = this.createRequest(params);
     const apiResponse = await this.consume(queryParams).catch((e) => {
       throw new HttpException(
-        { status: e.response.status, error: "NEWS API: "+e.response.data.message },
+        {
+          status: e.response.status,
+          error: 'NEWS API: ' + e.response.data.message,
+        },
         e.response.status,
       );
     });
@@ -26,7 +29,7 @@ class NewsService {
 
   parseNews(results: []) {
     const list = results.map((item) => {
-      const { title, url,  publishedAt, source } = item;
+      const { title, url, publishedAt, source } = item;
       return new NewsDto(title, url, publishedAt, '', source['name']);
     });
     return list;

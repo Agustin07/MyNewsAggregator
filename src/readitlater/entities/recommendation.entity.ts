@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToOne, JoinColumn} from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 
 @Entity()
@@ -9,12 +16,12 @@ export class Recommendation {
   @Column()
   url: string;
 
-  @Column({ type: "timestamp",  default: () => 'now()'})
+  @Column({ type: 'timestamp', default: () => 'now()' })
   entryDate: Date;
 
-  @ManyToOne(type => User, user => user.recommendations)
+  @ManyToOne((type) => User, (user) => user.recommendations)
   user: User;
 
-  @ManyToOne(type => User)
+  @ManyToOne((type) => User)
   referral: User;
 }

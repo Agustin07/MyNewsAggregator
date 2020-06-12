@@ -1,6 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
-
 
 @Entity()
 export class Article {
@@ -10,9 +9,9 @@ export class Article {
   @Column()
   url: string;
 
-  @Column({ type: "timestamp",  default: () => 'now()'})
+  @Column({ type: 'timestamp', default: () => 'now()' })
   entryDate: Date;
 
-  @ManyToOne(type => User, user => user.articles)
+  @ManyToOne((type) => User, (user) => user.articles)
   user: User;
 }

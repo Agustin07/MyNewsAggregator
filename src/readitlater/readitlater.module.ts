@@ -9,6 +9,6 @@ import { Recommendation } from './entities/recommendation.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([User, Article, Recommendation])],
   controllers: [ReaditlaterController],
-  providers: [ReaditlaterService]
+  providers: [ReaditlaterService],
 })
 export class ReaditlaterModule {}

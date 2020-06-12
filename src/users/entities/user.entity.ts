@@ -19,15 +19,18 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ type: "timestamp",  default: () => 'now()'})
+  @Column({ type: 'timestamp', default: () => 'now()' })
   entryDate: Date;
 
-  @OneToMany(type => Article, article => article.user)
+  @OneToMany((type) => Article, (article) => article.user)
   articles: Article[];
 
-  @OneToMany(type => Recommendation, recommendation => recommendation.user)
+  @OneToMany((type) => Recommendation, (recommendation) => recommendation.user)
   recommendations: Recommendation[];
 
-  @OneToMany(type => Recommendation, recommendation => recommendation.referral)
+  @OneToMany(
+    (type) => Recommendation,
+    (recommendation) => recommendation.referral,
+  )
   referrals: Recommendation[];
 }
