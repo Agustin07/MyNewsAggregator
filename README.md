@@ -62,6 +62,10 @@ Run the DBscript.sql file will create **"newsdb"**
 |POST `/recommendations`| Send a recommendation to another user |Required|
 |GET `/recommendations`| Get the recommendations received|Required|
 
+>Try to login using admin account created by default in the DBscript! 
+>
+>![check postman's tests!](https://i.ibb.co/Jn3zRTz/loginpostman.png)
+
 
 ## Postman tests' documentation
 
