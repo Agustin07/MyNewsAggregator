@@ -8,7 +8,6 @@ class NewsService {
 
   async getNews(params: ParamsNewsDto) {
     const queryParams = this.createRequest(params);
-    console.log(queryParams);
     const apiResponse = await this.consume(queryParams).catch((e) => {
       throw new HttpException(
         { status: e.response.status, error: "NEWS API: "+e.response.data.message },

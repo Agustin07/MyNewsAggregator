@@ -3,12 +3,13 @@ import {
   Get,
   Query,
   HttpException,
-  HttpStatus,
+  HttpStatus, UseGuards
 } from '@nestjs/common';
 import NewsService from './news.service';
 import NYTimesService from './nytimes.service';
 import GuardianService from './guardian.service';
 import { ParamsNewsDto, NewsDto } from './dto/news.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('news')
 export class NewsController {
@@ -18,6 +19,7 @@ export class NewsController {
     private readonly guardianService: GuardianService,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   async getNews(@Query() query: ParamsNewsDto) {
     let result: NewsDto[] = [];
